@@ -5,6 +5,9 @@ import BudgetCard from './assets/Components/BudgetCard/BudgetCard'
 import './assets/Components/BudgetCard/BudgetCard'
 import Expense from './assets/Components/Expense/Expense'
 import PieChart from './assets/Components/PieChart/PieChart'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun } from '@fortawesome/free-solid-svg-icons/faSun'
+import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon'
 
 function App() {
 	const [budget, setBudget] = useState(0)
@@ -96,22 +99,47 @@ function App() {
 		// }
 	}
 
+	function toggleSidebar() {
+
+	}
+
+	function toggleColorScheme() {
+		const current = getComputedStyle(root).colorScheme;
+
+		root.style.colorScheme = current === 'dark' ? 'light' : 'dark';
+	}
+
 	return (
 		<main>
-			<h1>Budget Tracker</h1>
+			<div id="sidebar">
+				<div id="sidebar-header">
+					{/* <h2>Budget Tracker</h2> */}
+					{/* <button id="toggleSize">{'>>'}</button> */}
+				</div>
+
+				<div id="sidebar-footer">
+					<button className='sidebar-icon-btn' onClick={() => toggleColorScheme()} >
+						{
+							getComputedStyle(root).colorScheme === 'dark' ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />
+						}
+					</button>
+				</div>
+			</div>
 
 			<div className="main-content">
+				{/* <h1>Budget Tracker</h1> */}
+				<div className="budget-container">
+					<BudgetCard title={'Total Budget'} value={budget} EditBudget={SetBudget} />
+					<BudgetCard
+						title={'Remaining Budget'}
+						value={remainingBudget}
+						background={remainingBudget < 0 ? 'var(--warning-budget)' : 'var(--secondary-background)'}
+						textColor={remainingBudget <= 0 ? '#c24242' : 'inherit'}
+					/>
+					<BudgetCard title={'Total Expenses'} value={totalExpenses} />
+				</div>
+
 				<section>
-					<div className="budget-container">
-						<BudgetCard title={'Total Budget'} value={budget} EditBudget={SetBudget} />
-						<BudgetCard
-							title={'Remaining Budget'}
-							value={remainingBudget}
-							background={remainingBudget < 0 ? 'var(--warning-budget)' : 'var(--secondary-background)'}
-							textColor={remainingBudget <= 0 ? '#c24242' : 'inherit'}
-						/>
-						<BudgetCard title={'Total Expenses'} value={totalExpenses} />
-					</div>
 					<div className="budget-charts">
 						<PieChart title="Expense Overview" importData={expensesData} />
 						<PieChart
@@ -128,15 +156,14 @@ function App() {
 							]}
 						/>
 					</div>
-				</section>
-				<div className="expense-list-container">
-					<header>
-						<button id="addExpense" onClick={CreateNewExpense}>
-							Add Expense
-						</button>
-					</header>
-					{expensesData
-						? expensesData.map((expense) => {
+					<div className="expense-list-container">
+						<header>
+							<button id="addExpense" onClick={CreateNewExpense}>
+								Add Expense
+							</button>
+						</header>
+						{expensesData
+							? expensesData.map((expense) => {
 								return (
 									<Expense
 										key={expense.id}
@@ -148,11 +175,13 @@ function App() {
 										DeleteExpense={handleDeleteExpense}
 									/>
 								)
-						  })
-						: ''}
-				</div>
+							})
+							: ''}
+					</div>
+				</section>
+
 			</div>
-		</main>
+		</main >
 	)
 }
 

@@ -1,146 +1,151 @@
 .expense-container {
-	display: flex;
-	gap: 1rem;
-	padding: 1rem;
-	box-sizing: border-box;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
 
-	border-radius: 1rem;
-	background: var(--primary-background);
+    border-radius: 1rem;
+    background: var(--primary-background);
 
-	outline: 1.25px solid rgba(0, 0, 0, 0.1);
+    outline: 1.25px solid rgba(0, 0, 0, 0.1);
 
-	transition: all 0.1s ease;
+    transition: all 0.1s ease;
 
-	-webkit-user-select: none; /* Safari */
-	-ms-user-select: none; /* IE 10 and IE 11 */
-	user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .expense-container:hover {
-	box-shadow: 0px 8px 12px var(--shadow-color);
-	transform: translateY(-5px);
-	outline: 0;
+    box-shadow: 0px 8px 12px var(--shadow-color);
+    transform: translateY(-5px);
+    outline: 0;
 }
 
 .expense-main-content {
-	flex: 1 1 auto;
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 .expense-info {
-	flex: 1 1 auto;
+    flex: 1 1 auto;
 
-	display: flex;
-	gap: 2rem;
+    display: flex;
+    gap: 2rem;
 }
 
 .expense-amount {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .button-container {
-	margin: auto;
-	display: flex;
-	gap: 0.5rem;
-	justify-self: flex-end;
+    margin: auto;
+    display: flex;
+    gap: 0.5rem;
+    justify-self: flex-end;
+
 }
 
 .button-container button {
-	width: 1rem;
-	opacity: 0.7;
+    width: 1rem;
+    opacity: 0.7;
 
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 
-	padding: 0rem;
-	box-sizing: border-box;
+    padding: 0rem;
+    box-sizing: border-box;
 
-	background: none;
-	outline: none;
-	border: none;
+    background: none;
+    outline: none;
+    border: none;
 
-	transition: transform 0.05s ease;
+    transition: transform 0.05s ease;
 
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .button-container button img {
-	width: 100%;
+    width: 100%;
 }
 
 .button-container button:hover {
-	transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .button-container button img:hover {
-	filter: drop-shadow(0px 4px 3px #0000003a);
+    filter: drop-shadow(0px 4px 3px #0000003a);
 }
 
 .input-container input {
-	font-family: inherit;
-	font-size: inherit;
-	width: 6rem;
+    font-family: inherit;
+    font-size: inherit;
+    width: 6rem;
 
-	outline: 0;
-	border: 0;
+    outline: 0;
+    border: 0;
 
-	text-align: right;
+    text-align: right;
 
-	background: none;
+    background: none;
 }
 
 .input-container {
-	padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 
-	box-sizing: border-box;
+    box-sizing: border-box;
 
-	background: var(--secondary-background);
+    background: var(--secondary-background);
 
-	border-radius: 0.5rem;
-	outline: 1px solid var(--shadow-color);
+    border-radius: 0.5rem;
+    outline: 1px solid var(--shadow-color);
 
-	transition: all 0.1s ease;
+    transition: all 0.1s ease;
 }
 
 .input-container:focus-within {
-	outline: 1px solid var(--shadow-color);
+    outline: 1px solid var(--shadow-color);
 }
 
 .expense-name .input-container input {
-	text-align: left;
+    text-align: left;
 }
 
 #categoryInput {
-	font-size: inherit;
+    font-size: inherit;
 
-	padding: 0.25rem 0.5rem;
-	border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
 
-	border: 0;
-	outline: 1px solid var(--shadow-color);
-	color: inherit;
+    border: 0;
+    outline: 1px solid var(--shadow-color);
+    color: var(--text-color);
 }
 
 @media only screen and (max-width: 475px) {
-	.expense-container {
-		gap: 0.5rem;
-	}
-	.input-container {
-		font-size: 0.85rem;
-		width: 100%;
-	}
+    .expense-container {
+        gap: 0.5rem;
+    }
 
-	#categoryInput {
-		width: 100%;
-	}
+    .input-container {
+        font-size: 0.85rem;
+        width: 100%;
+    }
 
-	#amountInput {
-		width: 100%;
-	}
+    #categoryInput {
+        width: 100%;
+    }
+
+    #amountInput {
+        width: 100%;
+    }
 }
